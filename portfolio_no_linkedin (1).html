@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradeep Kumar Reddy Reddem - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f0f4f8 0%, #d6e7f0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #1e3c72;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #1e3c72;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #2a5298;
+            transform: scale(1.05);
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            border-left: 5px solid #ff6b6b;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .company-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            color: #666;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .date-location {
+            text-align: right;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #1e3c72;
+            font-size: 0.8rem;
+        }
+
+        .education {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .education h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .education p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .publication-item {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff9800;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.1);
+        }
+
+        .publication-item::before {
+            content: '📚';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.6;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.25);
+            border-left-width: 8px;
+        }
+
+        .publication-header h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .publication-meta {
+            margin-bottom: 20px;
+        }
+
+        .journal {
+            display: block;
+            color: #ff9800;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .pub-date {
+            color: #666;
+            font-size: 0.95rem;
+            background: rgba(255, 152, 0, 0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .publication-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .highlight-badge {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 152, 0, 0.3);
+        }
+
+        .highlight-badge:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .certification-item {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-item::before {
+            content: '🏆';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        .cert-header {
+            margin-bottom: 15px;
+        }
+
+        .cert-header h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .cert-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .issuer {
+            font-weight: 600;
+            color: #4caf50;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.95rem;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
+        }
+
+        .cert-credential {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .cert-skill {
+            background: #4caf50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-skill:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .date-location {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.primary:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>Pradeep Kumar Reddy Reddem</h1>
+            <p>Software and Data Engineer</p>
+            <div class="contact-info">
+                <a href="tel:+12039188855" class="contact-item">📞 (203) 918-8855</a>
+                <a href="mailto:reddempradeepkumar@gmail.com" class="contact-item">✉️ Email</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p style="font-size: 1.2rem; text-align: center; color: #666; line-height: 1.8;">
+                Software and Data engineer with experience in backend development, ETL processes, and AWS cloud. Committed to delivering high-quality solutions and motivated to excel in challenging software and data engineer roles. Passionate about building scalable systems and solving complex problems through innovative technology solutions.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">J2EE</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">DynamoDB</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">NoSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS EC2</span>
+                        <span class="skill-tag">Fargate</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">SQS</span>
+                        <span class="skill-tag">SNS</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">OAuth</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Formation</h3>
+                        <p class="job-title">Software Engineer Fellow</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Feb 2022 - Feb 2023</p>
+                        <p>Remote</p>
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Selected for a highly competitive Fellowship for personal and professional development purposes</li>
+                    <li>Completed intensive training for 7+ months to master React, data structures, algorithms, and theoretical CS topics through independent projects, pair programming, and small mentor-led groups with senior engineers from Microsoft, Facebook, Next Door, etc.</li>
+                    <li>Worked on deconstructing, high-level design, and scaling various real-time systems to handle millions of requests</li>
+                    <li>Strong understanding of performance tuning and optimization techniques, including load balancing, caching, and CDNs to handle millions of requests</li>
+                    <li>Strong understanding of communication protocols like web sockets and server-sent events and system architecture, including microservices, API design, and data storage solutions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Onex Softech</h3>
+                        <p class="job-title">Software Developer</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Jan 2019 - Nov 2020</p>
+                        <p>Hyderabad, India</p>
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Improved user acquisition drastically by fixing a few map functionalities that are not working in the devices with Android versions below 11 which are related to the critical weather alert</li>
+                    <li>Implemented auto-configuration and utilized Spring Boot starters to rapidly bootstrap projects, ensuring consistent and efficient setups across multiple microservices</li>
+                    <li>Successfully integrated Spring Security with OAuth and JWT to enhance application security through robust authentication and authorization mechanisms</li>
+                    <li>Utilized Retrofit web service for sending requests to APIs, enhancing project code reusability</li>
+                    <li>Enhanced the project's code reusability, addressed critical issues through thorough debugging, conducted code reviews while offering valuable feedback, and mentored junior team members effectively</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <div class="publication-header">
+                        <h3>Research On Application Of Artificial Intelligence Algorithm In Directed Graph</h3>
+                        <div class="publication-meta">
+                            <span class="journal">International Journal For Science And Advanced Research In Technology</span>
+                            <span class="pub-date">Apr 8, 2019</span>
+                        </div>
+                    </div>
+                    <div class="publication-highlight">
+                        <span class="highlight-badge">🎯 AI Research</span>
+                        <span class="highlight-badge">📊 Graph Algorithms</span>
+                        <span class="highlight-badge">🔬 Published Research</span>
+                    </div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-header">
+                        <h3>An Novel Idea Artificial Neural Network</h3>
+                        <div class="publication-meta">
+                            <span class="journal">International Conference on Electrical, Electronics, Computer Science and Information Technology</span>
+                            <span class="pub-date">Dec 16, 2018</span>
+                        </div>
+                    </div>
+                    <div class="publication-highlight">
+                        <span class="highlight-badge">🧠 Neural Networks</span>
+                        <span class="highlight-badge">🏛️ Conference Paper</span>
+                        <span class="highlight-badge">💡 Novel Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Licenses & Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <div class="cert-header">
+                        <h3>Data Warehouse Fundamentals</h3>
+                        <div class="cert-meta">
+                            <span class="issuer">IBM</span>
+                            <span class="date">Jan 2025</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="cert-header">
+                        <h3>ETL and Data Pipelines with Shell, Airflow and Kafka</h3>
+                        <div class="cert-meta">
+                            <span class="issuer">IBM</span>
+                            <span class="date">Jan 2025</span>
+                        </div>
+                    </div>
+                    <div class="cert-skills">
+                        <span class="cert-skill">ETL</span>
+                        <span class="cert-skill">Data Engineering</span>
+                        <span class="cert-skill">Apache Airflow</span>
+                        <span class="cert-skill">Apache Kafka</span>
+                        <span class="cert-skill">Python</span>
+                        <span class="cert-skill">PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="cert-header">
+                        <h3>Django Web Framework</h3>
+                        <div class="cert-meta">
+                            <span class="issuer">Meta</span>
+                            <span class="date">Jul 2024</span>
+                        </div>
+                    </div>
+                    <div class="cert-credential">
+                        <span class="credential-id">Credential ID: MFX6FWCMGY98</span>
+                    </div>
+                    <div class="cert-skills">
+                        <span class="cert-skill">Django REST Framework</span>
+                        <span class="cert-skill">Python</span>
+                    </div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="cert-header">
+                        <h3>Python Data Structures</h3>
+                        <div class="cert-meta">
+                            <span class="issuer">University of Michigan</span>
+                            <span class="date">Jun 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="cert-header">
+                        <h3>Data Structures Crash Course</h3>
+                        <div class="cert-meta">
+                            <span class="issuer">AlgoExpert</span>
+                            <span class="date">Aug 2022</span>
+                        </div>
+                    </div>
+                    <div class="cert-skills">
+                        <span class="cert-skill">Data Structures</span>
+                        <span class="cert-skill">Algorithm Analysis</span>
+                        <span class="cert-skill">Algorithms</span>
+                        <span class="cert-skill">Knowledge Graphs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Master of Science in Computer Science</h3>
+                <p><strong>University of New Haven</strong> | West Haven, CT | Dec 2022</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Collaborate?</h2>
+            <p>Let's build something amazing together. I'm always excited to discuss new opportunities and innovative projects.</p>
+            <a href="mailto:reddempradeepkumar@gmail.com" class="cta-button primary">reddempradeepkumar@gmail.com</a>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scrolling animation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section, .experience-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.1s';
+                        entry.target.style.animationFillMode = 'both';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add hover effect for skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(2deg)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
